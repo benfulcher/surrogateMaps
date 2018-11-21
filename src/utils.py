@@ -60,9 +60,9 @@ def geodesic_distance(regenerate=False):
             raise Exception("Distance file %s doesn't exist! Re-run with "
                             "regenerate=True" % files.distance_matrix)
 
-    print "\n## Computing geodesic distance matrix ##"
-    print "# Input surface file: %s" % files.midthickness_surface
-    print "# Output distance file: %s" % files.distance_matrix
+    print("\n## Computing geodesic distance matrix ##")
+    print("# Input surface file: %s" % files.midthickness_surface)
+    print("# Output distance file: %s" % files.distance_matrix)
 
     # Files produced during run-time execution bv Connectome Workbench commands
     coordinate_metric_file = path.join(
@@ -123,7 +123,7 @@ def geodesic_distance(regenerate=False):
             mean_distance = np.mean(parcel_distances[lj])
             distance_matrix[i, i+j+1] = mean_distance
 
-        print "# Parcel label %s complete." % str(li)
+        print("# Parcel label %s complete." % str(li))
 
     # Remove intermediate files produced during run-time execution
     remove(coordinate_metric_file)

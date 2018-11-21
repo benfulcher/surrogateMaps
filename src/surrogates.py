@@ -116,7 +116,7 @@ def save_surrogates(d, neuro_map, saveto, n_maps=10000):
     d : np.ndarray
         distance matrix where element [i, j] is distance between parcels i and j
     neuro_map : np.ndarray
-        parcellated neuroimaging/neurophenotype scalar map, e.g. the myelin map
+        parcellated neuroimaging/neurophenotype scalar map, e.g., the myelin map
     saveto : str
         file to which surrogate maps are saved (with a function call to np.save)
     n_maps : int, optional
@@ -136,13 +136,13 @@ def save_surrogates(d, neuro_map, saveto, n_maps=10000):
     np.random.seed(137)
 
     if path.exists(saveto):
-        print "# Warning! Overwriting surrogates saved to %s." % saveto
+        print("# Warning! Overwriting surrogates saved to %s." % saveto)
 
     # Fit spatial autocorrelation parameters for input map
     rho, d0 = fit_parameters(d, neuro_map)
-    print "# Parameter estimates: rho = %f; d0 = %f" % (rho, d0)
+    print("# Parameter estimates: rho = %f; d0 = %f" % (rho, d0))
 
-    print "# Generating %i surrogates... " % n_maps
+    print("# Generating %u surrogates... " % n_maps)
     maps = np.empty((n_maps, nr))
 
     # Generate random surrogates. In the code block below, surrogate maps are
@@ -161,7 +161,7 @@ def save_surrogates(d, neuro_map, saveto, n_maps=10000):
 
     if saveto:
         np.save(saveto, maps)
-        print "# Surrogate maps saved to %s." % saveto
+        print("# Surrogate maps saved to %s." % saveto)
 
     return maps
 

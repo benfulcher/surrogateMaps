@@ -67,8 +67,8 @@ def fit_empirical_autocorr_scale(corrmat, distmat, dmax=None):
         mask = np.less(x, dmax)
         x = x[mask]
         y = y[mask]
-        print "# Fitting d0 on %i of %i elements for which d < (dmax = %f)" % (
-            sum(mask), n, dmax)
+        print("# Fitting d0 on %i of %i elements for which d < (dmax = %f)" % (
+            sum(mask), n, dmax))
     d0 = fit_exp_decay(x, y)
     return d0
 
