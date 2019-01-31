@@ -1,6 +1,6 @@
 """
 
-Generating surrogate maps for mouse expression patterns
+Generating surrogate maps for mouse & human expression patterns
 
 """
 
@@ -8,16 +8,20 @@ from src import utils, files, surrogates, spatial
 import pandas as pd
 import numpy as np
 
-
 # Parameters:
+whatSpecies = 'mouse'
+rho = 1 # effect size
 d0_range = (0.01,0.1,0.2,0.4,0.6,0.8,1,10,100,1000) # length scales
-rho = 0.5 # effect size
+
 numMaps = len(d0_range)
 
 # File names:
-distMatFile = 'mouseDistMat.csv'
-fileNameOut = ('mouseSurrogate_rho%u.csv' % int(rho*10))
-
+if whatSpecies=='mouse':
+    distMatFile = 'mouseDistMat.csv'
+    fileNameOut = ('mouseSurrogate_rho%u.csv' % int(rho*10))
+elif whatSpecies=='human':
+    distMatFile = 'humanDistMat.csv'
+    fileNameOut = ('humanSurrogate_rho%u.csv' % int(rho*10))
 
 # Load in the pairwise separation distance matrix:
 distMat = pd.read_csv(distMatFile,header=None)
