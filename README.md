@@ -1,10 +1,21 @@
+# New
+
+Generating correlated spatial maps for mouse and human.
+We can run:
+```bash
+python3 GenerateMapsFixed.py
+```
+after setting either `human` or `mouse` in the python script.
+
+
+# From Josh Burt's repository:
+
 The functions defined in `src` operate on the data in `data` to produce the
 outputs in `outputs`. All core functionality is demonstrated in `demo.py`.
 
 Descriptions of package contents are provided below.
 
-data
-====
+### data
 Input data, treated as read-only.
 
 GRIN2B.pscalar.nii
@@ -21,30 +32,27 @@ L_Q1-Q6_RelatedValidation210.[...]Group_Colors.32k_fs_LR.label.gii
 Q1-Q6_RelatedValidation210.L.midthickness_[...]32k_fs_LR.surf.gii
     The HCP midthickness surface mesh for the left cortical hemisphere.
 
-docs
-====
+### docs
 The latest version of manuscript, which contains detailed descriptions of the
 methods implemented in this package.
 
-src
-===
+### src
 Source code, i.e. definitions of functions which operate on files in `data`.
 
-files.py
+`files.py`
     Absolute paths to files in the `data` and 'outputs' directories.
 
-spatial.py
+`spatial.py`
     Functions to compute statistical significance using spatial autoregressive
     modeling.
 
-surrogates.py
+`surrogates.py`
     Functions to generate and save surrogate maps with a specific
     autocorrelation structure.
 
-utils.py
+`utils.py`
     Utility functions for data I/O and to generate and save the geodesic
     distance matrix.
 
-outputs
-=======
+### outputs
 Directory in which outputs produced by the functions defined in `src` are saved.

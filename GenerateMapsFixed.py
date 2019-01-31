@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 
 # Parameters:
-whatSpecies = 'human' # 'mouse', 'human'
+whatSpecies = 'mouse' # 'mouse', 'human'
 if whatSpecies=='mouse':
     d0 = 0.4 # length scale
     rho = 0.8 # strength of distance effect
@@ -19,13 +19,13 @@ elif whatSpecies=='human':
 
 numMaps = 10000 # generate this many maps
 
-# File names:
+# Filenames:
 if whatSpecies=='mouse':
     distMatFile = 'mouseDistMat.csv'
-    fileNameOut = ('mouseSurrogate_rho%u_d0%u.csv' % (int(rho*10),int(d0*100)))
+    fileNameOut = ('mouseSurrogate_N%u_rho%u_d0%u.csv' % (numMaps,int(rho*10),int(d0*100)))
 elif whatSpecies=='human':
     distMatFile = 'humanDistMat.csv'
-    fileNameOut = ('humanSurrogate_rho%u_d0%u.csv' % (int(rho*10),int(d0*100)))
+    fileNameOut = ('humanSurrogate_N%u_rho%u_d0%u.csv' % (numMaps,int(rho*10),int(d0*100)))
 
 # Load in the pairwise separation distance matrix:
 distMat = pd.read_csv(distMatFile,header=None)
