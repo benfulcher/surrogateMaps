@@ -8,21 +8,27 @@ from src import utils, files, surrogates, spatial
 import pandas as pd
 import numpy as np
 
+
+
 # Parameters:
-whatSpecies = 'human' # 'mouse', 'human'
-if whatSpecies=='mouse':
+numMaps = 20000 # generate this many maps
+whatSpecies = 'mouseCortex' # 'mouse', 'human', 'mouseCortex'
+
+if (whatSpecies=='mouse' or whatSpecies=='mouseCortex'):
     d0 = 0.4 # length scale
     rho = 0.8 # strength of distance effect
 elif whatSpecies=='human':
     d0 = 20 # length scale
     rho = 0.8 # strength of distance effect
 
-numMaps = 20000 # generate this many maps
 
 # Filenames:
 if whatSpecies=='mouse':
     distMatFile = 'mouseDistMat.csv'
     fileNameOut = ('mouseSurrogate_N%u_rho%u_d0%u.csv' % (numMaps,int(rho*10),int(d0*100)))
+elif whatSpecies=='mouseCortex':
+    distMatFile = 'mouseCortexDistMat.csv'
+    fileNameOut = ('mouseCortexSurrogate_N%u_rho%u_d0%u.csv' % (numMaps,int(rho*10),int(d0*100)))
 elif whatSpecies=='human':
     distMatFile = 'humanDistMat_99.csv'
     fileNameOut = ('humanSurrogate_N%u_rho%u_d0%u.csv' % (numMaps,int(rho*10),int(d0*100)))
