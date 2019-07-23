@@ -7,8 +7,7 @@ python3 GenerateMapsFixed.py
 ```
 after setting either `human` or `mouse` in the python script.
 
-
-# From Josh Burt's repository:
+# From [the original Murray Lab Bitbucket repository](https://bitbucket.org/murraylab/surrogates/src/master/):
 
 The functions defined in `src` operate on the data in `data` to produce the
 outputs in `outputs`. All core functionality is demonstrated in `demo.py`.
