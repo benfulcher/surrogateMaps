@@ -5,7 +5,9 @@ We can run:
 ```bash
 python3 GenerateMapsFixed.py
 ```
-after setting either `human` or `mouse` in the python script.
+after manually setting either `human` or `mouse` in the script.
+
+---
 
 # From [the original Murray Lab Bitbucket repository](https://bitbucket.org/murraylab/surrogates/src/master/):
 

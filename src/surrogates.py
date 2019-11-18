@@ -27,7 +27,7 @@ def construct_weight_matrix(d, d0):
     w = np.exp(-d / d0)
     identity = np.eye(nr, dtype=bool)
     w[identity] = 0  # Zero diagonal elements to remove self-coupling
-    w /= w.sum(axis=1)  # Normalize rows to account for variation in parcel size
+    # w /= w.sum(axis=1)  # Normalize rows to account for variation in parcel size
     return w
 
 
@@ -66,7 +66,7 @@ def fit_parameters(d, neuro_map):
         rho_, d0_ = params
         w = construct_weight_matrix(d, d0_)
         return y - rho_ * w.dot(y)
-    x0 = np.array([5., 5.])  # Initial parameters estimates (i.e. rho, d0)
+    x0 = np.array([0.5, 0.2])  # Initial parameters estimates (i.e., rho, d0)
     x, cov_x, infodict, mesg, ier = leastsq(_slm, x0=x0, full_output=True)
     rho, d0 = x
 
